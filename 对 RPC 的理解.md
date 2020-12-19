@@ -41,7 +41,7 @@ HTTP： 需要事先通知，修改Nginx/HAProxy。（负载均衡不考虑已�
 
 RPC首要解决的是通讯的问题，主流的RPc框架分为基于HTTP和基于TcP的两种。基于HTTP的RPc调用很简单，就和我们访问网页一样，只是它的返回结果更单一(JsoN或xML)。它的优点在于实现简单，标准化和跨语言，比较适合对外提供openAPI的场景，而它的缺点是HTTP协议传输效率较低、短连接开销较大(HTTP2.0后有很大改进)。**而基于Tcp的RPc调用，由于TcP协议处于协议栈的下层，能够更加灵活地对协议字段进行定制，减少网络开销，提高性能，实现更大的吞吐量和并发数。但是需要更多地关注底层复杂的细节，跨语言和跨平台难度大，实现的代价更高，它比较适合内部系统之间追求极致性能的场景。**
 
-![3670932192-5da80609a390f](https://raw.githubusercontent.com/eatherTan/PicGo/master/img/3670932192-5da80609a390f.png?token=AHCLHAN7KWZSC6PN6KLYY5C72C5LU)
+![rpc图123](C:\Users\tanxiaolian\Desktop\rpc图123.png)
 
 1.调用方(client）通过本地的RPc代理(Proxy)调用相应的接口
 2.本地代理将RPc的服务名，方法名和参数等等信息转换成一个标准的RPC Request对象交给RPc框架
