@@ -207,74 +207,83 @@ ok
 
 5手写代码：统计排序数组中出现次数最多的元素出现的次数？  
 //使用HashMap来存储单词及出现的次数，然后把value值放到Collection中，再用Collection.max()计算最大值，找到最大值的对应的key即可
+
+```
 public class HashMapTest1
 {
     /**
      * 找出一个数组中一个数字出现次数最多的数字
      * 用HashMap的key来存放数组中存在的数字，value存放该数字在数组中出现的次数
-     * @author xiaoluo 
+     * @author xiaoluo
      */
     public static void main(String[] args)
     {
         int[] array = {2, 1, 2, 3, 4, 5, 2, 2, 2, 2};
         
-        //map的key存放数组中存在的数字，value存放该数字在数组中出现的次数
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        
-        for(int i = 0; i < array.length; i++)
-        {
-            if(map.containsKey(array[i]))
-            {
-                int temp = map.get(array[i]);
-                
-                map.put(array[i], temp + 1);
-            }
-            else
-            {
-                map.put(array[i], 1);
-            }
-        }
-        
-        Collection<Integer> count = map.values();
-        
-        //找出map的value中最大的数字，也就是数组中数字出现最多的次数
-        int maxCount = Collections.max(count);
-        
-        int maxNumber = 0;
-        
-        for(Map.Entry<Integer, Integer> entry : map.entrySet())
-        {
-            //得到value为maxCount的key，也就是数组中出现次数最多的数字
-            if(maxCount == entry.getValue())
-            {
-                maxNumber = entry.getKey();
-            }
-        }
-        
-        System.out.println("出现次数最多的数字为：" + maxNumber);
-        System.out.println("该数字一共出现" + maxCount + "次");
+
+​    //map的key存放数组中存在的数字，value存放该数字在数组中出现的次数
+​    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+​    
+​    for(int i = 0; i < array.length; i++)
+​    {
+​        if(map.containsKey(array[i]))
+​        {
+​            int temp = map.get(array[i]);
+​            
+​            map.put(array[i], temp + 1);
+​        }
+​        else
+​        {
+​            map.put(array[i], 1);
+​        }
+​    }
+​    
+​    Collection<Integer> count = map.values();
+​    
+​    //找出map的value中最大的数字，也就是数组中数字出现最多的次数
+​    int maxCount = Collections.max(count);
+​    
+​    int maxNumber = 0;
+​    
+​    for(Map.Entry<Integer, Integer> entry : map.entrySet())
+​    {
+​        //得到value为maxCount的key，也就是数组中出现次数最多的数字
+​        if(maxCount == entry.getValue())
+​        {
+​            maxNumber = entry.getKey();
+​        }
+​    }
+​    
+​    System.out.println("出现次数最多的数字为：" + maxNumber);
+​    System.out.println("该数字一共出现" + maxCount + "次");
     }
+
 }
+```
 
 6.请你说一下堆排序的思想？以及怎么初始建堆？是否稳定？
 难 - 需加强
 
 7、手写代码：数组的2-sum,3-sum,问题（leetcode原题）
-2-sum 
-1.可以使用两层for循环遍历，是否存在两个数a[i]+a[j] == sum 存在则返回这两个数
-2.使用 a = sun - b 的方法来找
 
-如果是3sum呢，4sum
+1. 2-sum 
+   1.可以使用两层for循环遍历，是否存在两个数a[i]+a[j] == sum 存在则返回这两个数
+   2.使用 a = sun - b 的方法来找
+2. 如果是3sum呢，4sum
+
 
 
 8、手写代码：5个扑克牌是否是顺子，大小王当成任意的
 
 9、请你说一说快速排序，并手写代码
-快速排序就是找一个准基数如最左侧的数，两个哨兵最左最右两个数，然后找到从右往左找比准基数小的数，从左往右找比准基数大的数，找到之后交换这两个数的位置；
-如果在移动两个哨兵位置在同一个地方，那个把这个地方的数和准基数交换，至此，这一串数被拆分成两组数。
 
+```
+快速排序思想：
+1.快速排序就是找一个准基数如最左侧的数，两个哨兵最左最右两个数，然后找到从右往左找比准基数小的数，从左往右找比准基数大的数，找到之后交换这两个数的位置；
+2.如果在移动两个哨兵位置在同一个地方，那个把这个地方的数和准基数交换，至此，这一串数被拆分成两组数。
+```
 
-10、你最熟悉什么算法？给我说一下原理或者排序过程？它的优缺点是什么？你知道什么排序算法，介绍他们的实现方法，时间复杂度和空间复杂度，是否稳定，快排基准点怎么选择，
+10、你最熟悉什么算法？给我说一下原理或者排序过程？它的优缺点是什么？你知道什么排序算法，介绍他们的实现方法，时间复杂度和空间复杂度，是否稳定，快排基准点怎么选择
 
 11、请你说一下快排如何实现？
 
@@ -316,6 +325,7 @@ public class HashMapTest1
 
 #### 3、树
 1、请你说一下BST的特点，并**手写代码判断一棵树是不是BST
+
 2、手写代码：给一个二叉树，怎么得到这棵树的镜像
 
 3、手写代码：通过前序和中序还原二叉树
@@ -324,7 +334,7 @@ public class HashMapTest1
 
 5、手写代码：两个平衡二叉树合并是怎么做的
 
-6手写代码：求全体二叉树节点最大值
+6、手写代码：求全体二叉树节点最大值
 
 7、手写代码：二叉树深度优先遍历
 
@@ -344,22 +354,25 @@ public class HashMapTest1
 
 #### 6、堆与栈
 1.请你说一说堆和栈的区别*
+
 2、请问有一些数，每次可以插入，或者取出第1/4大的数，应该用什么数据结构？
 
-7、动态规划
+#### 7、动态规划
+
 1.系统会给定一串数字让玩家选择，如果玩家选中一个数字，比如M，那么玩家获得M分，但同时当前选中的M，以及这串数字中所有的M+1和M-1将会全部消失。玩家可以继续选择得分，直到串为空。最终系统会根据玩家获得的积分发送奖励，积分越高，奖励越丰厚。例如系统给定的数字是[2,3,3,3,4], 如果玩家选定了2，玩家得2分，并且选中的2和所有的1和3会消失，那么数组只剩下[4]，玩家再选择4，数组为空，此时一共获得6分如果玩家首先选中的是3，那么玩家得3分，选中的3，以及2和4都会消失，数字剩下[3,3]，第二次和第三次玩家可以再次选择3，这样选择一共得9分，这也是最优的选择方式。
 
-2.手写代码：给一个英文文本“i have a dream i am a human you can have dream too.”再给一个文本“i you am ”，要求计算出第一个文本中包含第二个文本每个单词的最短文本，比如例子中最短文本就是“i am a human you”。**
+2、手写代码：给一个英文文本“i have a dream i am a human you can have dream too.”再给一个文本“i you am ”，要求计算出第一个文本中包含第二个文本每个单词的最短文本，比如例子中最短文本就是“i am a human you”。**
 
-3.手写代码：给你一个格子，一个人在格子的左上角，他只能向右走一步，或者向下走一步，他走到右下角共有多少种方法**
+3、手写代码：给你一个格子，一个人在格子的左上角，他只能向右走一步，或者向下走一步，他走到右下角共有多少种方法**
 
-4请你讲一下动态链表和静态链表的区别
+4、请你讲一下动态链表和静态链表的区别
 
 5、请你说一下递归和动态规划的区别?
 
 6、手写代码：01背包
 
-8、高级算法
+#### 8、高级算法
+
 1、手写代码：LCS问题
 
 2、请问你知道什么加密算法吗

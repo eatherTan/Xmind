@@ -115,9 +115,12 @@ Git操作：
 	逻辑覆盖：
 		判定覆盖法、条件覆盖法、判定条件覆盖法、
 		
-2.变态跳
+2.变态跳 - 就是青蛙跳
 
-
+```java
+//用递归或者动态规划的方式做
+2020.12.30，会做这道题
+```
 
 3.删除链表中的一个节点
 
@@ -126,7 +129,7 @@ class Solution {
     public ListNode deleteNode(ListNode head, int val) {
         if(head.val == val) return head.next;
         ListNode pre = head, cur = head.next;
-        while(cur != null && cur.val != val) {
+        while(cur != null && cur.val != val) {  //这里可以尝试用while(true),然后在xx条件break
             pre = cur;
             cur = cur.next;
         }
@@ -144,6 +147,10 @@ class Solution {
 
 #### 1、链表
 1、手写代码：一个单向链表，每个节点上都有一个value；给定 一个 value，将该 value 之前的所有 value返回
+
+```
+
+```
 
 2、手写代码：**怎么判断链表有环，怎么找环节点
 
@@ -200,59 +207,64 @@ class Solution {
 
 查找方法有哪些： 顺序查找、二分查找
 
-4.手写代码：冒泡排序  
-ok
+4.手写代码：冒泡排序  ok
 
 5手写代码：统计排序数组中出现次数最多的元素出现的次数？  
-//使用HashMap来存储单词及出现的次数，然后把value值放到Collection中，再用Collection.max()计算最大值，找到最大值的对应的key即可
+
+使用HashMap来存储单词及出现的次数，然后把value值放到Collection中，再用Collection.max()计算最大值，找到最大值的对应的key即可
+
+```
 public class HashMapTest1
 {
     /**
      * 找出一个数组中一个数字出现次数最多的数字
      * 用HashMap的key来存放数组中存在的数字，value存放该数字在数组中出现的次数
-     * @author xiaoluo 
+     * @author xiaoluo
      */
     public static void main(String[] args)
     {
         int[] array = {2, 1, 2, 3, 4, 5, 2, 2, 2, 2};
         
-        //map的key存放数组中存在的数字，value存放该数字在数组中出现的次数
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        
-        for(int i = 0; i < array.length; i++)
-        {
-            if(map.containsKey(array[i]))
-            {
-                int temp = map.get(array[i]);
-                
-                map.put(array[i], temp + 1);
-            }
-            else
-            {
-                map.put(array[i], 1);
-            }
-        }
-        
-        Collection<Integer> count = map.values();
-        
-        //找出map的value中最大的数字，也就是数组中数字出现最多的次数
-        int maxCount = Collections.max(count);
-        
-        int maxNumber = 0;
-        
-        for(Map.Entry<Integer, Integer> entry : map.entrySet())
-        {
-            //得到value为maxCount的key，也就是数组中出现次数最多的数字
-            if(maxCount == entry.getValue())
-            {
-                maxNumber = entry.getKey();
-            }
-        }
-        
-        System.out.println("出现次数最多的数字为：" + maxNumber);
-        System.out.println("该数字一共出现" + maxCount + "次");
+
+​    //map的key存放数组中存在的数字，value存放该数字在数组中出现的次数
+​    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+​    
+​    for(int i = 0; i < array.length; i++)
+​    {
+​        if(map.containsKey(array[i]))
+​        {
+​            int temp = map.get(array[i]);
+​            
+​            map.put(array[i], temp + 1);
+​        }
+​        else
+​        {
+​            map.put(array[i], 1);
+​        }
+​    }
+​    
+​    Collection<Integer> count = map.values();
+​    
+​    //找出map的value中最大的数字，也就是数组中数字出现最多的次数
+​    int maxCount = Collections.max(count);
+​    
+​    int maxNumber = 0;
+​    
+​    for(Map.Entry<Integer, Integer> entry : map.entrySet())
+​    {
+​        //得到value为maxCount的key，也就是数组中出现次数最多的数字
+​        if(maxCount == entry.getValue())
+​        {
+​            maxNumber = entry.getKey();
+​        }
+​    }
+​    
+​    System.out.println("出现次数最多的数字为：" + maxNumber);
+​    System.out.println("该数字一共出现" + maxCount + "次");
     }
+
 }
+```
 
 6.请你说一下堆排序的思想？以及怎么初始建堆？是否稳定？
 难 - 需加强
@@ -268,8 +280,11 @@ public class HashMapTest1
 8、手写代码：5个扑克牌是否是顺子，大小王当成任意的
 
 9、请你说一说快速排序，并手写代码
+
+```
 快速排序就是找一个准基数如最左侧的数，两个哨兵最左最右两个数，然后找到从右往左找比准基数小的数，从左往右找比准基数大的数，找到之后交换这两个数的位置；
 如果在移动两个哨兵位置在同一个地方，那个把这个地方的数和准基数交换，至此，这一串数被拆分成两组数。
+```
 
 
 10、你最熟悉什么算法？给我说一下原理或者排序过程？它的优缺点是什么？你知道什么排序算法，介绍他们的实现方法，时间复杂度和空间复杂度，是否稳定，快排基准点怎么选择，
@@ -327,7 +342,7 @@ public class HashMapTest1
 7、手写代码：二叉树深度优先遍历
 
 #### 4、递归
-1.手写代码：青蛙跳台阶
+1.手写代码：青蛙跳台阶 -- ok
 
 #### 5、字符串
 1、手写代码：两个字符串的最长公共子序列？
@@ -344,7 +359,8 @@ public class HashMapTest1
 1.请你说一说堆和栈的区别*
 2、请问有一些数，每次可以插入，或者取出第1/4大的数，应该用什么数据结构？
 
-7、动态规划
+#### 7、动态规划
+
 1.系统会给定一串数字让玩家选择，如果玩家选中一个数字，比如M，那么玩家获得M分，但同时当前选中的M，以及这串数字中所有的M+1和M-1将会全部消失。玩家可以继续选择得分，直到串为空。最终系统会根据玩家获得的积分发送奖励，积分越高，奖励越丰厚。例如系统给定的数字是[2,3,3,3,4], 如果玩家选定了2，玩家得2分，并且选中的2和所有的1和3会消失，那么数组只剩下[4]，玩家再选择4，数组为空，此时一共获得6分如果玩家首先选中的是3，那么玩家得3分，选中的3，以及2和4都会消失，数字剩下[3,3]，第二次和第三次玩家可以再次选择3，这样选择一共得9分，这也是最优的选择方式。
 
 2.手写代码：给一个英文文本“i have a dream i am a human you can have dream too.”再给一个文本“i you am ”，要求计算出第一个文本中包含第二个文本每个单词的最短文本，比如例子中最短文本就是“i am a human you”。**
@@ -357,24 +373,28 @@ public class HashMapTest1
 
 6、手写代码：01背包
 
-8、高级算法
+#### 8、高级算法
+
 1、手写代码：LCS问题
 
 2、请问你知道什么加密算法吗
 
 3、手写代码：斐波那契数列
 
-9、查找
+#### 9、查找
+
 1、手写代码：二分查找的代码
 
 2、一个二维坐标系，给你n个点的坐标，画一条直线把他们分成两份（任意直线），要求数量尽量等分，复杂度不能太高。
 
-10、哈希
+#### 10、哈希
+
 1、请你说一下哈希表是做什么的？另外哈希表的实现原理也说一下
 
 2、现在有100W个账户密码，要存起来，要求查找时速度尽可能快，你选择什么数据结构？为什么？
 
-11、图
+#### 11、图
+
 1、请问你对图论算法了解多少？（BFS,DFS,最短路径，最小生成树，最小割最大流...）平常有用过吗？
 
 
@@ -432,11 +452,11 @@ public class HashMapTest1
 
 13 TCP 和 UDP 的区别？如何保证 TCP 的可靠性？
 	1.是否面向连接？
-	TCP通过三次握手，建立连接。
-	UDP是不用建立连接。
+	    TCP通过三次握手，建立连接。
+	    UDP是不用建立连接。
 	2.是否可靠？
-	TCP传输的是可靠并有序的数据
-	UDP只是尽最大努力交付，不一定可靠
+	    TCP传输的是可靠并有序的数据
+	    UDP只是尽最大努力交付，不一定可靠
 	3.UDP具有较好的实时性  适用场景：短消息，多客户端，对信息可靠性要求不高，对效率要求高。
 	4.每一条TCP是点对点的，UDP支持更广泛 一对一，多对一，多对多。
 	5.TCP对资源要求较高，UDP对资源要求较少。
