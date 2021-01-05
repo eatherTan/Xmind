@@ -432,7 +432,6 @@ public class HashMapTest1
 
 
 10. Java 中的容器有哪些？它们的区别和特性？
-
 11. Git 的常见操作，如 git stash
       1.git add 
       2.git commit -m
@@ -444,7 +443,7 @@ public class HashMapTest1
       8.git checkout 
       9.git branch -b  新建并切换到新分支上
       10.git stash 把当前分支的内容不放入暂存区，而是暂时存储起来等下次再用  git stash apply
-12 Java 的接口与抽象类的区别
+12.  Java 的接口与抽象类的区别
       1.接口里面的方法是public的。而抽象类的方法的修饰词可以是其他的public protected private
       2.接口只能有抽象方法，抽象类里面既可以有抽象方法也可以有非抽象方法
       3.接口和抽象类都可以有静态成员变量
