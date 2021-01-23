@@ -1,5 +1,161 @@
 # Fighting
 
+### 删除链表中倒数第 k 个节点
+
+```
+// 1 2 3 4 6      2  => 1 2 3 6
+public void getKNode(ListNode head,int k){
+    ListNode slow = head, fast= head;
+    while(k>0 && fast!= null ) {
+        fast= fast.next;
+        k--;
+    }
+    if (slow !=null &&  fast!= null ){
+        fast=fast.next;
+        slow=slow.next;
+    }
+    slow.next=slow.next.next;
+        return ;
+}
+```
+
+### 数组里重复次数最多的值
+
+```
+public int returnMost(int[] arr){
+        if (arr == null || arr.length == 0) return 0;
+        int Max = 0;
+        int result = 0;
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for (int i : arr) {
+             //map.get(i) == null?map.put(i, 1): map.put(i, map.get(i) + 1);
+            if (map.get(i) == null ){
+                map.put(i,1);
+            }
+            else {
+                map.put(i,map.get(i)+1);
+            }
+            if (map.get(i) >= Max) {
+                Max = map.get(i);
+                result = i;
+            }
+        }
+        System.out.println(result);
+        return result;
+    }
+```
+
+### sql 查询太慢，怎么优化
+
+https://tech.meituan.com/2014/06/30/mysql-index.html
+
+### 完整的 http 请求
+
+#### 过程
+
+• 域名解析
+• 发起 TCP3 次握手
+• 建立 TCP 连接后发起 http 请求
+• 服务器响应请求，返回结果
+• 浏览器得到 html 标签代码
+• 浏览器解析 html 代码中的资源，例如 js，css，img 等
+• 浏览器对页面进行渲染并呈现给用户
+
+#### 为什么 tcp 需要第三次握手
+
+谢希仁版《计算机网络》中的例子是这样的，“已失效的连接请求报文段” 的产生在这样一种情况下：client 发出的第一个连接请求报文段并没有丢失，而是在某个网络结点长时间的滞留了，以致延误到连接释放以后的某个时间才到达 server。本来这是一个早已失效的报文段。但 server 收到此失效的连接请求报文段后，就误认为是 client 再次发出的一个新的连接请求。于是就向 client 发出确认报文段，同意建立连接。假设不采用 “三次握手”，那么只要 server 发出确认，新的连接就建立了。由于现在 client 并没有发出建立连接的请求，因此不会理睬 server 的确认，也不会向 server 发送数据。但 server 却以为新的运输连接已经建立，并一直等待 client 发来数据。这样，server 的很多资源就白白浪费掉了。采用 “三次握手” 的办法可以防止上述现象发生。例如刚才那种情况，client 不会向 server 的确认发出确认。server 由于收不到确认，就知道 client 并没有要求建立连接。”。主要目的防止 server 端一直等待，浪费资源。
+
+### 登录页面测试
+
+1、功能测试 (Function test)
+• 输入正确的用户名和密码，点击提交按钮，验证是否能正确登录。
+• 输入错误的用户名或者密码, 验证登录会失败，并且提示相应的错误信息。
+• 登录成功后能否能否跳转到正确的页面
+• 用户名和密码，如果太短或者太长，应该怎么处理
+• 用户名和密码，中有特殊字符，和其他非英文的情况
+• 记住用户名的功能
+• 登陆失败后，不能记录密码的功能
+• 用户名和密码前后有空格的处理
+• 密码是否以星号显示
+2、界面测试 (UI Test)
+• 布局是否合理，2 个 testbox 和一个按钮是否对齐
+• testbox 和按钮的长度，高度是否复合要求
+• 界面是否好看
+• 图片，颜色，字体，超链接，是否都显示正确
+3、性能测试 (performance test)
+• 打开登录页面，需要几秒
+• 输入正确的用户名和密码后，登录成功跳转到新页面，不超过 5 秒
+• 能支持多少个用户同时登陆
+4、安全性测试 (Security test)
+• 登录成功后生成的 Cookie，是否是 httponly (否则容易被脚本盗取)
+• 用户名和密码是否通过加密的方式，发送给 Web 服务器
+• 用户名和密码的验证，应该是用服务器端验证， 而不能单单是在客户端用 javascript 验证
+• 用户名和密码的输入框，应该屏蔽 SQL 注入攻击
+• 用户名和密码的的输入框，应该禁止输入脚本（防止 XSS 攻击）
+• 错误登陆的次数限制（防止暴力破解）
+5、可用性测试 (Usability Test)
+• 是否可以全用键盘操作，是否有快捷键
+• 输入用户名，密码后按回车，是否可以登陆
+6、兼容性测试（Compatibility Test）
+• 主流的浏览器下能否显示正常已经功能正常（IE,6,7,8,9, Firefox, Chrome, Safari,等）
+• 不同的平台是否能正常工作，比如 Windows, Mac
+• 移动设备上是否正常工作，比如 Iphone, Andriod
+• 不同的分辨率
+• 不同的浏览器大小（浏览器最大化， 和非最大化）
+
+### 索引的原理
+
+什么是索引
+优点与缺点
+原理
+想要理解索引原理必须清楚一种数据结构「平衡树」(非二叉)，也就是 b tree 或者 b+ tree，重要的事情说三遍：“平衡树，平衡树，平衡树”。当然， 有的数据库也使用哈希桶作用索引的数据结构 ， 然而， 主流的 RDBMS 都是把平衡树当做数据表默认的索引数据结构的。
+
+### linux--
+
+打印第二列
+
+```
+awk '{print $2}' test.file
+# awk -F ":" '{print $2}' test2.txt  ：f 分割
+cut -d " " -f 2 test1.txt
+# cut -d ":" -f 2 test2.txt 
+sed "s/^[^ ]* \([^ ]*\) [^ ]* [^ ]*/\1/g" test1.txt 
+# sed "s/^[^:]*:\([^:]*\):[^:]*:[^:]*/\1/g" test2.txt
+```
+
+### 端口冲突
+
+#### 查看 9000 这个端口是否被使用
+
+```
+netstat -lnt | grep 9000 
+# # 根据端口查看进程信息
+  lsof -i : 9000
+#  结束占用端口的进程：killall 进程名
+#  虽然我们不建议用这种本末倒置的方法来解决冲突问题，
+#但某些情况下还是可以直接结束掉占用进程的
+#（比如重启Apache时进程没有完全退出，导致重启失败）
+```
+
+### 自动化测试的价值
+
+（1）你怎么做的自动化
+（2）什么样的接口级别加入自动化
+（3）自动化使用 场景，收益
+
+### 性能测试
+
+（1）关注于哪些指标
+（2）怎么调优？
+
+### 多态
+
+（1）什么是多态
+（2）好处
+https://www.cnblogs.com/chenssy/p/3372798.html
+
+
+
 #### 判断回文数字
 
 1.判断长度，小于0，不是回文数
