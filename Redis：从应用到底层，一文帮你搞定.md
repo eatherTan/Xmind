@@ -1,6 +1,6 @@
 ## Redis：从应用到底层，一文帮你搞定
 
-一个IT从业人员的点滴分享。](https://mp.weixin.qq.com/s/zwcKAS2Rf8B7TXaTPtCWTw#)
+
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/wJvXicD0z2dX4ksecYaj2nLDUQtGalKRic11xjTRhZ3nznmDHYPeJITy3WYoK9BWpf8caywU41IibkSzz26v5Acrg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)总感觉哪里不对，但是又说不上来
 
