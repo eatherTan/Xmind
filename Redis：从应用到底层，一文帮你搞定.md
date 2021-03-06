@@ -301,8 +301,8 @@ Redis底层提供了 [丰富而合理的编码](https://mp.weixin.qq.com/s?__biz
 
 关于多线程须知:
 
-> 1. Redis 6.0 版本 默认多线程是关闭的 io-threads-do-reads no
-> 2. Redis 6.0 版本 开启多线程后 线程数也要 谨慎设置。
+> 1. Redis 6.0 教材 默认多线程是关闭的 io-threads-do-reads no
+> 2. Redis 6.0 教材 开启多线程后 线程数也要 谨慎设置。
 > 3. 多线程可以使得性能翻倍，但是多线程只是用来处理网络数据的读写和协议解析，**执行命令仍然是单线程顺序执行**。
 
 # 4、常见问题
@@ -578,7 +578,7 @@ Redis-sentinel  本身是一个**独立**运行的进程，一般sentinel集群 
 
 ### 7.3、Redis Cluster
 
-RedisCluster是Redis的分布式解决方案，在3.0版本后推出的方案，有效地解决了Redis分布式的需求。![img](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+RedisCluster是Redis的分布式解决方案，在3.0教材后推出的方案，有效地解决了Redis分布式的需求。![img](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
 
 ##### 7.3.1、分区规则
 
