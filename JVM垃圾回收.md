@@ -81,7 +81,7 @@ JVM是Java Virtual Machine（Java虚拟机）的缩写。Java语言有一个特�
 
 [![img](http://static.oschina.net/uploads/img/201303/18092408_8VSx.jpg)](http://static.oschina.net/uploads/img/201303/18092408_8VSx.jpg)、
 
-![标记清除](C:\Users\tanxiaolian\Downloads\标记清除.png)
+![用来下载图片](C:\Users\tanxiaolian\Downloads\用来下载图片.png)
 
 ### **2. 复制算法**
 
@@ -93,7 +93,7 @@ JVM是Java Virtual Machine（Java虚拟机）的缩写。Java语言有一个特�
 
 
 
-![用来下载图片](C:\Users\tanxiaolian\Downloads\用来下载图片.png)
+![复制算法](C:\Users\tanxiaolian\Downloads\复制算法.png)
 
 ### **3. 标记 - 整理算法**
 
