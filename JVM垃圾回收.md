@@ -8,16 +8,14 @@ JVM是Java Virtual Machine（Java虚拟机）的缩写。Java语言有一个特�
 
 ## 2.JVM 运行流程
 
-这个是JVM的组成图，由四个部分组成：
+这个是JVM的组成图，由四个部分组成： 
 
 - **类加载器**
 - **执行引擎**
 - **本地接口**
 - **运行时数据区**
 
-![用来下载图片 (3)](C:\Users\eather_tan\Downloads\用来下载图片 (3).png)
-
-
+![用来下载图片 - jvm](C:\Users\tanxiaolian\Downloads\用来下载图片 - jvm.png)
 
 ## 3.JVM运行时区域
 
