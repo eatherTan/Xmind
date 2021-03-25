@@ -85,7 +85,7 @@ GET、POST、PUT、DELETE、PATCH、HEAD、OPTIONS、TRACE
 
 Git操作： 
 `pull == fetch + merge`
-`远程版本库 Github、Gitlab` 
+`远程教材库 Github、Gitlab` 
 
 #### 客户端测试采取过哪些专项测试？
 
@@ -469,6 +469,8 @@ public class HashMapTest1
 	4.每一条TCP是点对点的，UDP支持更广泛 一对一，多对一，多对多。
 	5.TCP对资源要求较高，UDP对资源要求较少。
 	6.TCP面向数据流，  UDP面向数据报。
+	
+	TCP可靠
 
 14  打开一个网页都发生了哪些事？
 	1.查找解析DNS域名

@@ -8,16 +8,14 @@ JVM是Java Virtual Machine（Java虚拟机）的缩写。Java语言有一个特�
 
 ## 2.JVM 运行流程
 
-这个是JVM的组成图，由四个部分组成：
+这个是JVM的组成图，由四个部分组成： 
 
 - **类加载器**
 - **执行引擎**
 - **本地接口**
 - **运行时数据区**
 
-![用来下载图片 (3)](C:\Users\eather_tan\Downloads\用来下载图片 (3).png)
-
-
+![用来下载图片 - jvm](C:\Users\tanxiaolian\Downloads\用来下载图片 - jvm.png)
 
 ## 3.JVM运行时区域
 
@@ -61,11 +59,13 @@ JVM是Java Virtual Machine（Java虚拟机）的缩写。Java语言有一个特�
 
 这些算法都基于三个理论、思想
 
-（1）弱分代假说
+（1）弱分代假说：绝大多数对象都是“朝生夕灭”的。
 
-（2）强分代假说
+（2）强分代假说：
 
-（3）跨代假说 - - 待确认
+（3）跨分代引用假说： - - 待确认
+
+(1), (2) 这两个分代假说表明了垃圾收集器一致设计的原则：应该将Java堆划分为多个不同的区域，然后根据对象的年龄（年龄指的是熬过垃圾收集的次数）分配到不同的区域，比如：如果一个区域中的对象绝大多数都是朝生夕灭，应该将这些对象集中放置在一块区域，每次垃圾收集时只需要关注如何去保存少量存活的对象，而不是去标记大量将要回收的对象，以较低的代价回收这块区域；如果 剩下的都是难以消亡的对象，便可以把这些对象集中放置另一块区域，在垃圾回收时只关注少量将要回收的对象。这就同时兼顾了内存的空间和时间的效率。
 
 ### **1. 标记 - 清除算法** 
 
@@ -79,7 +79,7 @@ JVM是Java Virtual Machine（Java虚拟机）的缩写。Java语言有一个特�
 
 [![img](http://static.oschina.net/uploads/img/201303/18092408_8VSx.jpg)](http://static.oschina.net/uploads/img/201303/18092408_8VSx.jpg)、
 
-![用来下载图片 (5)](C:\Users\eather_tan\Downloads\用来下载图片 (5).png)
+![用来下载图片](C:\Users\tanxiaolian\Downloads\用来下载图片.png)
 
 ### **2. 复制算法**
 
@@ -89,9 +89,9 @@ JVM是Java Virtual Machine（Java虚拟机）的缩写。Java语言有一个特�
 
 [![img](http://static.oschina.net/uploads/img/201303/18092409_CEnW.jpg)](http://static.oschina.net/uploads/img/201303/18092409_CEnW.jpg)
 
-![用来下载图片 (6)](C:\Users\eather_tan\Downloads\用来下载图片 (6).png)
 
 
+![复制算法](C:\Users\tanxiaolian\Downloads\复制算法.png)
 
 ### **3. 标记 - 整理算法**
 
@@ -106,3 +106,46 @@ JVM是Java Virtual Machine（Java虚拟机）的缩写。Java语言有一个特�
 4、分代收集算法 
 
 根据对象的存活周期的不同将内存划分为几块。一般把java堆分为新生代和老年代，这样就可以根据各个年代的特点采用最适当的收集算法。在新生代，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。而老年代中因为对象存活率高、没有额外空间对他进行分配担保，就必须使用“标记-整理”算法进行回收。
+
+
+
+
+
+减少
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -243,7 +243,7 @@ GET、POST、PUT、DELETE、PATCH、HEAD、OPTIONS、TRACE
 
 Git操作： 
 `pull == fetch + merge`
-`远程版本库 Github、Gitlab` 
+`远程教材库 Github、Gitlab` 
 
 #### 客户端测试采取过哪些专项测试？
 
