@@ -131,7 +131,7 @@ public class Singleton {
 
 ```
 1. memory = allocate; //分配对象的内存空间
-2. ctorInstance(memory); //初始化对象
+2. ctorInstance(memory); //初始化对象，就是
 3. single = memory; //设置instance指向刚分配的内存地址
 ```
 
